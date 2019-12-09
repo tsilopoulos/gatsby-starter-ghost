@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import { Disqus, CommentCount } from 'gatsby-plugin-disqus'
 
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
@@ -14,6 +15,11 @@ import { MetaData } from '../components/common/meta'
 */
 const Post = ({ data, location }) => {
     const post = data.ghostPost
+    let disqusConfig = {
+        url: `${'https://panos.tech'+location.pathname}`,
+        identifier: post.id,
+        title: post.title
+    }
 
     return (
         <>
@@ -33,6 +39,7 @@ const Post = ({ data, location }) => {
                                 <img src={ post.feature_image } alt={ post.title } />
                             </figure> : null }
                         <section className="post-full-content">
+                            <CommentCount config={disqusConfig} placeholder={'...'} />
                             <h1 className="content-title">{post.title}</h1>
 
                             {/* The main post content */ }
@@ -41,6 +48,7 @@ const Post = ({ data, location }) => {
                                 dangerouslySetInnerHTML={{ __html: post.html }}
                             />
                         </section>
+                        <Disqus config={disqusConfig} />
                     </article>
                 </div>
             </Layout>

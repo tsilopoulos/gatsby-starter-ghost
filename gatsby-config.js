@@ -34,6 +34,12 @@ module.exports = {
         siteUrl: config.siteUrl,
     },
     plugins: [
+        {
+            resolve: `gatsby-plugin-disqus`,
+            options: {
+                shortname: `panos-tech`
+            }
+        },
         /**
          *  Content Plugins
          */
