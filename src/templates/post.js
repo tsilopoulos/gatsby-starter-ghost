@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import { readingTime as readingTimeHelper } from '@tryghost/helpers'
 import Helmet from 'react-helmet'
 import { Disqus, CommentCount } from 'gatsby-plugin-disqus'
 
@@ -15,7 +16,8 @@ import { MetaData } from '../components/common/meta'
 */
 const Post = ({ data, location }) => {
     const post = data.ghostPost
-    let disqusConfig = {
+    const readingTime = readingTimeHelper(post)
+    const disqusConfig = {
         url: `${'https://panos.tech'+location.pathname}`,
         identifier: post.id,
         title: post.title
@@ -39,7 +41,15 @@ const Post = ({ data, location }) => {
                                 <img src={ post.feature_image } alt={ post.title } />
                             </figure> : null }
                         <section className="post-full-content">
-                            <CommentCount config={disqusConfig} placeholder={'...'} />
+                            <div>
+                                {readingTime}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <CommentCount config={disqusConfig} placeholder={'...'} />
+                            </div>
                             <h1 className="content-title">{post.title}</h1>
 
                             {/* The main post content */ }
