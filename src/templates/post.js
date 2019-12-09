@@ -18,7 +18,7 @@ const Post = ({ data, location }) => {
     const post = data.ghostPost
     const readingTime = readingTimeHelper(post)
     const disqusConfig = {
-        url: `${'https://panos.tech'+location.pathname}`,
+        url: `${'https://panos.tech' + location.pathname}`,
         identifier: post.id,
         title: post.title
     }
