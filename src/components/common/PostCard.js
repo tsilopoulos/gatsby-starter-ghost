@@ -3,10 +3,16 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { Tags } from '@tryghost/helpers-gatsby'
 import { readingTime as readingTimeHelper } from '@tryghost/helpers'
+import { CommentCount } from 'gatsby-plugin-disqus'
 
 const PostCard = ({ post }) => {
     const url = `/${post.slug}/`
     const readingTime = readingTimeHelper(post)
+    const disqusConfig = {
+        url: `${'https://panos.tech'+location.pathname}`,
+        identifier: post.id,
+        title: post.title
+    }
 
     return (
         <Link to={url} className="post-card">
@@ -31,7 +37,7 @@ const PostCard = ({ post }) => {
                     <span>{ post.primary_author.name }</span>
                 </div>
                 <div className="post-card-footer-right">
-                    <div>{readingTime}</div>
+                    <div>{readingTime}&nbsp;&nbsp;&nbsp;&nbsp;<CommentCount config={disqusConfig} placeholder={'...'} /></div>
                 </div>
             </footer>
         </Link>
