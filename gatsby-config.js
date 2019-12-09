@@ -35,6 +35,17 @@ module.exports = {
     },
     plugins: [
         {
+            resolve: `gatsby-plugin-scroll-indicator`,
+            options: {
+              // Configure color of the scroll indicator
+              color: '#663391',
+              // Configure paths where the scroll indicator will appear
+              paths: ['/welcome', '/blog/**'],
+              // Configure the z-index of the indicator element
+              zIndex: `9999`,
+            }
+        },
+        {
             resolve: `gatsby-plugin-disqus`,
             options: {
                 shortname: `panos-tech`
