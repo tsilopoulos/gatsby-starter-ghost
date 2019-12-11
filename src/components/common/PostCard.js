@@ -8,8 +8,12 @@ import { CommentCount } from 'gatsby-plugin-disqus'
 const PostCard = ({ post }) => {
     const url = `/${post.slug}/`
     const readingTime = readingTimeHelper(post)
-    const disqusConfig = ({ slug, title }) => ({
-        config: { identifier: slug, title }
+    const disqusConfig = ({ id, slug, title }) => ({
+        config: { 
+            identifier: id, 
+            title: title,
+            url: `${'https://panos.tech/' + slug}`
+        }
     })
 
     return (
@@ -35,7 +39,7 @@ const PostCard = ({ post }) => {
                     <span>{ post.primary_author.name }</span>
                 </div>
                 <div className="post-card-footer-right">
-                    <div>{readingTime}&nbsp;&nbsp;&nbsp;&nbsp;<CommentCount {...disqusConfig({ slug: post.slug, title: post.title })} /></div>
+                    <div>{readingTime}&nbsp;&nbsp;&nbsp;&nbsp;<CommentCount {...disqusConfig({ id: post.id, slug: post.slug, title: post.title })} /></div>
                 </div>
             </footer>
         </Link>
