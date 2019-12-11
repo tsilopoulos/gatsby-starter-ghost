@@ -5,14 +5,12 @@ import { Tags } from '@tryghost/helpers-gatsby'
 import { readingTime as readingTimeHelper } from '@tryghost/helpers'
 import { CommentCount } from 'gatsby-plugin-disqus'
 
-const PostCard = ({ post, location }) => {
+const PostCard = ({ post }) => {
     const url = `/${post.slug}/`
     const readingTime = readingTimeHelper(post)
-    const disqusConfig = {
-        url: `${'https://panos.tech' + location.pathname}`,
-        identifier: post.id,
-        title: post.title
-    }
+    const disqusConfig = ({ slug, title }) => ({
+        config: { identifier: slug, title }
+    })
 
     return (
         <Link to={url} className="post-card">
@@ -37,7 +35,7 @@ const PostCard = ({ post, location }) => {
                     <span>{ post.primary_author.name }</span>
                 </div>
                 <div className="post-card-footer-right">
-                    <div>{readingTime}&nbsp;&nbsp;&nbsp;&nbsp;<CommentCount config={disqusConfig} placeholder={'...'} /></div>
+                    <div>{readingTime}&nbsp;&nbsp;&nbsp;&nbsp;<CommentCount {...disqusConfig({ slug: post.slug, title: post.title })} /></div>
                 </div>
             </footer>
         </Link>
