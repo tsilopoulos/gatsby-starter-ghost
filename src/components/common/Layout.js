@@ -47,8 +47,9 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                     </Link>
                                 </div>
                                 <div className="site-mast-right">
-                                { 'https://github.com/tsilopoulos' && <a href="https://github.com/tsilopoulos" className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/github.svg" alt="Github" /></a>}
+                                    { 'https://github.com/tsilopoulos' && <a href="https://github.com/tsilopoulos" className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/github.svg" alt="Github" /></a>}
                                     { site.twitter && <a href={ twitterUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/twitter.svg" alt="Twitter" /></a>}
+                                    { 'https://www.linkedin.com/in/panostsilopoulos/' && <a href="https://www.linkedin.com/in/panostsilopoulos/" className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/linkedin.svg" alt="LinkedIn" /></a>}
                                     { site.facebook && <a href={ facebookUrl } className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/facebook.svg" alt="Facebook" /></a>}
                                     <a className="site-nav-item" href={ `https://feedly.com/i/subscription/feed/${config.siteUrl}/rss/` } target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/rss.svg" alt="RSS Feed" /></a>
                                 </div>
