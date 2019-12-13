@@ -40,7 +40,7 @@ module.exports = {
               // Configure color of the scroll indicator
               color: '#663391',
               // Configure paths where the scroll indicator will appear
-              paths: ['/welcome', '/blog/**'],
+              paths: ['/**/'],
               // Configure the z-index of the indicator element
               zIndex: `9999`,
             }
