@@ -548,6 +548,10 @@ h6 {
     background: #fff;
 }
 
+.post-comment-count {
+    margin-left: 48%;
+}
+
 .post-feature-image img {
     margin: 0 0 3vw;
     width: 100%;
