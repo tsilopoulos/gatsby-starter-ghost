@@ -22,6 +22,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
     const site = data.allGhostSettings.edges[0].node
     const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
     const facebookUrl = site.facebook ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}` : null
+    const year = new Date().getFullYear();
 
     return (
         <>
@@ -39,12 +40,14 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                         <div className="container">
                             <div className="site-mast">
                                 <div className="site-mast-left">
-                                    <Link to="/">
+                                    {/* <Link to="/">
                                         {site.logo ?
                                             <img className="site-logo" src={site.logo} alt={site.title} />
                                             : <Img fixed={data.file.childImageSharp.fixed} alt={site.title} />
                                         }
-                                    </Link>
+                                    </Link> */}
+                                    {/* The navigation items as setup in Ghost */}
+                                    <Navigation data={site.navigation} navClass="site-nav-item" />
                                 </div>
                                 <div className="site-mast-right">
                                     { 'https://github.com/tsilopoulos' && <a href="https://github.com/tsilopoulos" className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/github.svg" alt="Github" /></a>}
@@ -60,15 +63,6 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                                     <p className="site-banner-desc">{site.description}</p>
                                 </div> :
                                 null}
-                            <nav className="site-nav">
-                                <div className="site-nav-left">
-                                    {/* The navigation items as setup in Ghost */}
-                                    <Navigation data={site.navigation} navClass="site-nav-item" />
-                                </div>
-                                <div className="site-nav-right">
-                                    <Link className="site-nav-button" to="/about">About</Link>
-                                </div>
-                            </nav>
                         </div>
                     </header>
 
@@ -84,10 +78,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                     <footer className="site-foot">
                         <div className="site-foot-nav container">
                             <div className="site-foot-nav-left">
-                                <Link to="/">{site.title}</Link> © 2019 &mdash; Published with <a className="site-foot-nav-item" href="https://ghost.org" target="_blank" rel="noopener noreferrer">Ghost</a>
-                            </div>
-                            <div className="site-foot-nav-right">
-                                <Navigation data={site.navigation} navClass="site-foot-nav-item" />
+                                {site.title} © {year} 
                             </div>
                         </div>
                     </footer>
