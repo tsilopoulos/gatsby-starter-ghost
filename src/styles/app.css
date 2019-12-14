@@ -549,7 +549,12 @@ h6 {
 }
 
 .post-comment-count {
-    margin-left: 46%;
+    margin-left: 70%;
+}
+@media (max-width: 500px) {
+    .post-comment-count {
+        margin-left: 42%;
+    }
 }
 
 .post-feature-image img {
