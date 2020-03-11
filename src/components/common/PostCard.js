@@ -9,8 +9,8 @@ const PostCard = ({ post }) => {
     const url = `/${post.slug}/`
     const readingTime = readingTimeHelper(post)
     const disqusConfig = ({ id, slug, title }) => ({
-        config: { 
-            identifier: id, 
+        config: {
+            identifier: id,
             title: title,
             url: `${'https://panos.tech/' + slug}`
         }
@@ -36,7 +36,7 @@ const PostCard = ({ post }) => {
                             <img className="default-avatar" src="/images/icons/avatar.svg" alt={post.primary_author.name}/>
                         }
                     </div>
-                    <span>{ post.primary_author.name }</span>
+                    <span>Panos</span>
                 </div>
                 <div className="post-card-footer-right">
                     <div>{readingTime}&nbsp;&nbsp;&nbsp;&nbsp;<CommentCount {...disqusConfig({ id: post.id, slug: post.slug, title: post.title })} /></div>
