@@ -18,7 +18,7 @@ const Post = ({ data, location }) => {
     const post = data.ghostPost
     const readingTime = readingTimeHelper(post)
     const disqusConfig = {
-        url: `${'https://panos.tech' + location.pathname}`,
+        url: `${`https://panos.tech` + location.pathname}`,
         identifier: post.id,
         title: post.title
     }
@@ -38,14 +38,14 @@ const Post = ({ data, location }) => {
                     <article className="content">
                         { post.feature_image ?
                             <figure className="post-feature-image">
-                                <img src={ post.feature_image } alt={ post.title } />
+                                <img src={ post.feature_image.replace(`.gif`, `.webp`) } alt={ post.title } />
                             </figure> : null }
                         <section className="post-full-content">
                             <div>
                                 {readingTime}
                                 <span className="post-comment-count">
-                                    <CommentCount config={disqusConfig} placeholder={'...'} />
-                                </span>                        
+                                    <CommentCount config={disqusConfig} placeholder={`...`} />
+                                </span>
                             </div>
                             <h1 className="content-title">{post.title}</h1>
 
