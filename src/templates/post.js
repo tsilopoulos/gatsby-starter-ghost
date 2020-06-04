@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { readingTime as readingTimeHelper } from '@tryghost/helpers'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { Disqus, CommentCount } from 'gatsby-plugin-disqus'
 
 import { Layout } from '../components/common'
@@ -38,7 +38,7 @@ const Post = ({ data, location }) => {
                     <article className="content">
                         { post.feature_image ?
                             <figure className="post-feature-image">
-                                <img src={ post.feature_image.replace(`.gif`, `.webp`) } alt={ post.title } />
+                                <img src={ post.feature_image } alt={ post.title } />
                             </figure> : null }
                         <section className="post-full-content">
                             <div>

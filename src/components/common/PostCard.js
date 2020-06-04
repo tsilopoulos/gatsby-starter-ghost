@@ -21,7 +21,7 @@ const PostCard = ({ post }) => {
             <header className="post-card-header">
                 {post.feature_image &&
                     <div className="post-card-image" style={{
-                        backgroundImage: `url(${post.feature_image.replace(`.gif`, `.webp`)})`,
+                        backgroundImage: `url(${post.feature_image})`,
                     }}></div>}
                 {post.tags && <div className="post-card-tags"> <Tags post={post} visibility="public" autolink={false} /></div>}
                 {post.featured && <span>Featured</span>}
