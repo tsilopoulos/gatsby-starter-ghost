@@ -27,8 +27,6 @@ var trustAllScripts = function () {
     }
 };
 
-exports.onRouteUpdate = function () {
+export function onRouteUpdate () {
     trustAllScripts();
-};
-
-// require("prismjs/themes/prism-solarizedlight.css")
+}
